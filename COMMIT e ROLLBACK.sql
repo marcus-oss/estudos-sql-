@@ -1,0 +1,54 @@
+START TRANSACTION;
+
+SELECT * FROM vendedores;
+
+UPDATE vendedores SET COMISSAO = COMISSAO * 1.15;
+
+
+ROLLBACK;
+
+
+COMMIT;
+
+
+START TRANSACTION;
+
+INSERT INTO `sucos_vendas2`.`vendedores`
+(`MATRICULA`,
+`NOME`,
+`BAIRRO`,
+`COMISSAO`,
+`DATA_ADMISSAO`,
+`FERIAS`)
+VALUES
+('99999',
+'JOAO DA SILVA ',
+'jUVENTUDE',
+'0.14',
+'2021-02-15',
+'');
+
+
+UPDATE vendedores SET COMISSAO = COMISSAO * 1.15;
+
+
+
+INSERT INTO `sucos_vendas2`.`vendedores`
+(`MATRICULA`,
+`NOME`,
+`BAIRRO`,
+`COMISSAO`,
+`DATA_ADMISSAO`,
+`FERIAS`)
+VALUES
+('99998',
+'JOAO DA SILVA2 ',
+'jUVENTUDE',
+'0.14',
+'2021-02-15',
+'');
+
+ROLLBACK;
+
+
+COMMIT;
